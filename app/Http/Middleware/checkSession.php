@@ -16,7 +16,7 @@ class checkSession
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guard('yonghu')->guest()){
+        if (!session()->get('username')){
             return redirect(route('mobile.yonghu.loginshow'));
         }
         return $next($request);

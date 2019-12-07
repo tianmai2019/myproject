@@ -5,43 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{csrf_token()}}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.1.3/weui.css">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.1.3/weui.min.css">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/swiper.min.css') }}" rel="stylesheet">
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        .daohang{
+            background-color: #3C64D3;
+        }
+        .daohang a p{
+            color: white;
+            font-size: 15px;
+        }
+    </style>
 </head>
-<body >
-<div class="container">
-    <div class="text-center" style="margin-top: 5vw"><img src="/uploads/title.png" style="width: 50vw"></div>
+<body>
+    <div class="page" style="height: 100%;">
+        <div class="page__bd" style="height: 100%;">
+            <div class="weui-tab">
+                <div class="weui-tab__panel">
 
-    @yield('content')
+                    <h1 style="font-size: 4em;font-weight: bold;color: #3C64D3;text-align: center">清水筹</h1>
+                    @yield('content')
 
-    <div class="row text-center fixed-bottom" style="background-color: #3C64D3;">
-        <div class="col d-flex align-items-center justify-content-center" style="height: 30px">
-            <div class="">
-                <a href="{{route('mobile.yonghu.index')}}" style="color: white;">首页</a>
-            </div>
-        </div>
-        <div class="col d-flex align-items-center justify-content-center" style="height: 30px">
-            <div class="">
-                <a href="{{route('mobile.crowdfunding.index')}}" style="color: white;">众筹</a>
-            </div>
-        </div>
-        <div class="col d-flex align-items-center justify-content-center" style="height: 30px">
-            <div class="">
-                <a href="{{route('mobile.yonghu.center')}}" style="color: white;">我的</a>
+                </div>
+                <div class="weui-tabbar daohang">
+                    <a href="{{Route('mobile.yonghu.index')}}" class="weui-tabbar__item
+                        @if(session('tabbarno')==1)
+                            weui-bar__item_on
+                        @endif">
+                        <p class="weui-tabbar__label" >首页</p>
+                    </a>
+                    <a href="{{Route('mobile.crowdfunding.index')}}" class="weui-tabbar__item
+                        @if(session('tabbarno')==2)
+                            weui-bar__item_on
+                        @endif">
+                        <p class="weui-tabbar__label">众筹</p>
+                    </a>
+                    <a href="{{Route('mobile.yonghu.center')}}" class="weui-tabbar__item
+                        @if(session('tabbarno')==3)
+                            weui-bar__item_on
+                        @endif">
+                        <p class="weui-tabbar__label">我的</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 @yield('script')
 </body>
 </html>

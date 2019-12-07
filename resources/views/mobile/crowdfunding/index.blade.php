@@ -1,97 +1,189 @@
 @extends('yonghubase')
 
 @section('content')
-    <div class="d-flex justify-content-around" style="margin-top: 5vw;height: 18vw;">
-        <div class="rounded" style="background-color: #3C64D3;width: 30vw">
-            <a class="w-100 h-100 d-flex align-items-center justify-content-center"
-               href="{{Route('mobile.crowdfunding.index')}}">
-                <h5 style="color: white">众筹计划</h5>
-            </a>
-        </div>
-        <div class="rounded" style="background-color: #3C64D3;width: 30vw">
-            <a class="w-100 h-100 d-flex align-items-center justify-content-center"
-               href="{{Route('mobile.crowdfunding.repayment')}}">
-                <h5 style="color: white">还款计划</h5>
-            </a>
-        </div>
-    </div>
-
-    <div class="d-flex justify-content-around" style="margin-top: 5vw;height: 15vw">
-        <div class="d-flex flex-column rounded" style="background-color: #3C64D3;width: 15vw">
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">+</h5>
-            </div>
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">房贷</h5>
-            </div>
-        </div>
-        <div class="d-flex flex-column rounded" style="background-color: #3C64D3;width: 15vw">
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">+</h5>
-            </div>
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">车贷</h5>
-            </div>
-        </div>
-        <div class="d-flex flex-column rounded" style="background-color: #3C64D3;width: 15vw">
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">+</h5>
-            </div>
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">借款</h5>
+    <style>
+        .plan{
+            background-color: #3C64D3;
+            border-radius: 3vw;
+            margin: 10vw 10vw 5vw 10vw;
+            height: 16vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .plan1{
+            background-color: #3C64D3;
+            border-radius: 2vw;
+            margin: 2vw;
+            height: 16vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .plan1 p{
+            text-align: center;
+            color: white;
+        }
+        .juzhong{
+            margin-bottom: 3vw;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <div class="weui-flex">
+        <div class="weui-flex__item">
+            <div class="placeholder plan">
+                <a href="{{Route('mobile.crowdfunding.index')}}">
+                    <h3 style="color: white">众筹计划</h3>
+                </a>
             </div>
         </div>
-        <div class="d-flex flex-column rounded" style="background-color: #3C64D3;width: 15vw">
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">+</h5>
-            </div>
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">信用卡</h5>
-            </div>
-        </div>
-        <div class="d-flex flex-column rounded" style="background-color: #3C64D3;width: 15vw">
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">+</h5>
-            </div>
-            <div class="d-flex align-items-center justify-content-center">
-                <h5 style="color: white">其它</h5>
+        <div class="weui-flex__item">
+            <div class="placeholder plan">
+                <a href="{{Route('mobile.crowdfunding.repayment')}}">
+                    <h3 style="color: white">还款计划</h3>
+                </a>
             </div>
         </div>
     </div>
-    <h4 class="rounded" style="color: #3C64D3;margin-top: 10vw">计划：</h4>
-    <div class="rounded border border-dark" style="margin-bottom: 35px;padding: 5px">
-        <div class="row" style="background: url('/uploads/img/progressk.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V1</div>
-            <div class="col text-right">0/600</div>
+    <div class="weui-flex">
+        <div class="weui-flex__item">
+            <div class="placeholder plan1">
+                <a href="#">
+                    <p>+</p>
+                    <p>房贷</p>
+                </a>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V2</div>
-            <div class="col text-right">0/1800</div>
+        <div class="weui-flex__item">
+            <div class="placeholder plan1">
+                <a href="#">
+                    <p>+</p>
+                    <p>房贷</p>
+                </a>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V3</div>
-            <div class="col text-right">0/5400</div>
+        <div class="weui-flex__item">
+            <div class="placeholder plan1">
+                <a href="#">
+                    <p>+</p>
+                    <p>房贷</p>
+                </a>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V4</div>
-            <div class="col text-right">0/16200</div>
+        <div class="weui-flex__item">
+            <div class="placeholder plan1">
+                <a href="#">
+                    <p>+</p>
+                    <p>房贷</p>
+                </a>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V5</div>
-            <div class="col text-right">0/48600</div>
+        <div class="weui-flex__item">
+            <div class="placeholder plan1">
+                <a href="#">
+                    <p>+</p>
+                    <p>房贷</p>
+                </a>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V6</div>
-            <div class="col text-right">0/145800</div>
+    </div>
+    <h4 style="color: #3C64D3;margin: 5vw auto 5vw 3vw">计划：</h4>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V1</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 10%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V7</div>
-            <div class="col text-right">0/437400</div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/600</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V2</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
         </div>
-        <div class="row" style="background: url('/uploads/img/progressm.jpg') no-repeat;background-size:90% 100%;margin-top: 5vw">
-            <div class="col">V8</div>
-            <div class="col text-right">0/1312200</div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/1800</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V3</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
         </div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/5400</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V4</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/16200</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V5</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/48600</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V6</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/145800</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V7</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/437400</div>
+    </div>
+    <div class="weui-flex juzhong">
+        <div class="placeholder" style="width: 20vw;text-align: center">V8</div>
+        <div class="weui-flex__item">
+            <div class="weui-progress" style="">
+                <div class="weui-progress__bar" style="height: 3vw">
+                    <div class="weui-progress__inner-bar js_progress"
+                         style="width: 0%;height: 3vw;background-color: #3C64D3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="placeholder" style="width: 25vw;padding-left: 3vw">0/1312200</div>
     </div>
 
 @endsection

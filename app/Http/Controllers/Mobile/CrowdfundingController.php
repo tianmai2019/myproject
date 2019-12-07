@@ -9,6 +9,7 @@ class CrowdfundingController extends Controller
 {
     //众筹页面
     public function index(){
+        session()->put('tabbarno',2);
         return view('mobile.crowdfunding.index');
     }
 

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Mobile;
 
+use App\Mobile\Realname;
 use App\Mobile\Yonghu;
+use App\Rules\Hadexistence;
 use App\Rules\SupserRule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class YonghuController extends Controller
 {
@@ -28,9 +30,11 @@ class YonghuController extends Controller
             ->where('password',md5($data['password']))
             ->first();
         if (!empty($yonghudata)) {
-//            dd(session());
+            $yonghudata = $yonghudata->toArray();
+            //重启一次session
+            $request->session()->start();
             //将数据写入session
-            session($yonghudata);
+            $request->session()->replace($yonghudata);
             return redirect(route('mobile.yonghu.index'));
         } else {
             return redirect(route('mobile.yonghu.loginshow'))->withErrors([
@@ -74,10 +78,43 @@ class YonghuController extends Controller
 
     //首页展示
     public function index(){
+        session()->put('tabbarno',1);
         return view('mobile.yonghu.index');
     }
     //用户中心
     public function center(){
+        session()->put('tabbarno',3);
         return view('mobile.yonghu.center');
+    }
+    //用户信息
+    public function info(){
+        $message = "";
+        return view('mobile.yonghu.info',compact('message'));
+    }
+    public function infoupdate(Request $request){
+        $validata = $request->validate([
+            'level' => 'required|integer',
+            'username' => ['required','min:3','max:20',Rule::unique('yonghu')->ignore(session()->get('id'))],
+            'mobile' => ['required','size:11',Rule::unique('yonghu')->ignore(session()->get('id'))],
+            'mobile_b' => ['sometimes','required','size:11',Rule::unique('yonghu')->ignore(session()->get('id'))],
+        ],[],[
+            'mobile_b' => '手机号1'
+        ]);
+        //修改用户数据
+        $flag = Yonghu::query()->where('id',session()->get('id'))->update($validata);
+        if (0<$flag){
+            //修改session
+            session()->put('username',$validata['username']);
+            session()->put('mobile',$validata['mobile']);
+            session()->put('mobile_b',$validata['mobile_b']);
+            return back()->with('message','修改成功')->withInput();
+        }else{
+            return back()->with('message','修改失败')->withInput();
+        }
+    }
+
+    //用户认证
+    public function nameverifiedpage(){
+        return view('mobile.yonghu.nameverified');
     }
 }

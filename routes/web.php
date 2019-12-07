@@ -50,7 +50,7 @@ Route::group(['prefix' => 'mobile'],function(){
 });
 
 //移动端页面(需要判断session)
-Route::group(['prefix' => 'mobile'],function(){
+Route::group(['prefix' => 'mobile','middleware'=>'checksession'],function(){
     //前台首页
     Route::get('yonghu/index','Mobile\YonghuController@index')->name('mobile.yonghu.index');
     //团队信息
@@ -61,4 +61,9 @@ Route::group(['prefix' => 'mobile'],function(){
     Route::get('crowdfunding/repayment','Mobile\CrowdfundingController@repayment')->name('mobile.crowdfunding.repayment');
     //用户中心
     Route::get('yonghu/center','Mobile\YonghuController@center')->name('mobile.yonghu.center');
+    //个人信息页面
+    Route::get('yonghu/info','Mobile\YonghuController@info')->name('mobile.yonghu.info');
+    Route::post('yonghu/infoupdate','Mobile\YonghuController@infoupdate')->name('mobile.yonghu.infoupdate');
+    //实名认证页面
+    Route::get('yonghu/nameverifiedpage','Mobile\YonghuController@nameverifiedpage')->name('mobile.yonghu.nameverifiedpage');
 });
